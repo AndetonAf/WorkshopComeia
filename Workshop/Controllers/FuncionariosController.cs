@@ -58,8 +58,12 @@ namespace Workshop.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(funcionario);
+                var func = _context.Add(funcionario);
                 await _context.SaveChangesAsync();
+
+                _context.Add(new Tarefa() { Funcionario = func.Entity, NomeDaTarefa = "Desenvolvimento" });
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(funcionario);

@@ -1,0 +1,38 @@
+﻿@model Auth
+
+@{
+    ViewData["Title"] = "Login";
+    ViewData["BackGround"] = "background: #e6ecf3;";
+}
+
+<!-- Container start -->
+<div class="container" style="">
+    <form asp-action="Index">
+        <div class="row justify-content-md-center">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                <div class="login-screen">
+                    @if (!String.IsNullOrEmpty(@Model.Retorno))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @Model.Retorno
+                        </div>
+                    }
+                    <div class="login-box">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input asp-for="Usuario" type="text" class="form-control" placeholder="Usuario" />
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Senha" type="password" class="form-control" placeholder="Senha" />
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<!-- Container end -->

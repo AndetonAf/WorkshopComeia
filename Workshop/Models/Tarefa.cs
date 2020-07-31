@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Workshop.Models
 {
-    public class Funcionario
+    public class Tarefa
     {
         [Key]
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public int Idade { get; set; }
+        public string NomeDaTarefa { get; set; }
 
-        public List<Tarefa> Tarefas { get; set; }
+        public Funcionario Funcionario { get; set; }
 
     }
 }
